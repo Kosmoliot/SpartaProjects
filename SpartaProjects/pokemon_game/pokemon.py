@@ -4,8 +4,6 @@ import random
 from tabulate import tabulate
 
 
-
-
 class Pokemon():
     def __init__(self, pok_name) -> None:
         self.pok_name = pok_name
@@ -91,10 +89,14 @@ def fight_menu():
 
             user_choice = int(input("""\nWhat would you like to do:
 1\t-\tView stats
+2\t-\tChoose a move
 0\t-\tRun away
 : """))
             if user_choice == 1:
-                print_stats()             
+                print_stats()         
+                
+            elif user_choice == 2:
+                print(get_moves())   
             
             elif user_choice == 0:
                 print("\nCome back you COWARD!")
@@ -115,15 +117,10 @@ def choose_pokemon():
 0\t-\tGive up
 : """))
             if user_choice == 1:
-                user_pokemon =  enter_pokemon()
-                create_combatants(user_pokemon, random_pokemon())
-                fight_menu()
-                break
+                return enter_pokemon()
                 
             elif user_choice == 2:
-                create_combatants(user_pokemon, random_pokemon())
-                fight_menu()
-                break
+                return random_pokemon()
             
             elif user_choice == 0:
                 print("\nI thought I tought you better!")
@@ -136,4 +133,16 @@ def choose_pokemon():
 #===============Main Menu===============#
 
 
-choose_pokemon()
+# choose_pokemon()
+
+# first_item = next(iter(get_stats().items()))[0]
+# print(first_item[0])
+
+
+def main_menu():
+    create_combatants(choose_pokemon(), random_pokemon())
+    fight_menu()
+    
+# main_menu()
+
+print(get_moves())
