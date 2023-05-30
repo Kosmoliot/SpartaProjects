@@ -178,4 +178,4 @@ def main_menu(pokemon):
             print("\nEntry should be a number from the menu options.\n")
 
 
-main_menu(choose_pokemon())
+# main_menu(choose_pokemon())
