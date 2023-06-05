@@ -1,5 +1,4 @@
 from tabulate import tabulate
-from urllib.error import HTTPError
 import requests
 import random
 

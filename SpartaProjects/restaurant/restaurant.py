@@ -1,5 +1,3 @@
-import math
-
 # Creating a class to represent tables of diners at a restaurant
 class Table:
 
