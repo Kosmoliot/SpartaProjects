@@ -67,10 +67,3 @@ def main_function():
         
         
 # main_function()
-
-# ship = Starship(10)
-# # print(ship.info)
-# print(ship.get_pilot_ids())
-
-
-# print(list(db.characters.find({"name": "Obi-Wan Kenobi"}, {"id":1})))
