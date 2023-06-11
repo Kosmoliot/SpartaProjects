@@ -76,8 +76,8 @@ def main_function(range_nr):
         sw_api = requests.get(f"https://swapi.dev/api/starships/{i}")
         if sw_api.status_code == requests.codes.ok:
             ship = Starship(i)
-            ship.info["pilots"] = ship.pilot_list
+            ship.info["pilots"] = ship.pilot_ids
             db.starships.insert_one(ship.info)
         
         
-# main_function(36)
+main_function(36)
