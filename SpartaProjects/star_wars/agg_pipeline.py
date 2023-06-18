@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 import pprint
 
-load_dotenv()
+load_dotenv("/Users/miguel/Desktop/Coding/Sparta/MongoDB/.env")
 MONGODB_URL = os.environ["MONGODB_URL"]
 
 client = pymongo.MongoClient(MONGODB_URL)
