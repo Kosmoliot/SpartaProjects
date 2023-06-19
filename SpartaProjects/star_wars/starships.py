@@ -11,7 +11,7 @@ import json
 # a list of ObjectIDs from our characters collection, then insert the starships 
 # into their own collection. Use functions at the very least!
 
-load_dotenv("/Users/miguel/Desktop/Coding/Sparta/MongoDB/.env")
+load_dotenv()
 MONGODB_URL = os.environ["MONGODB_URL"]
 
 client = pymongo.MongoClient(MONGODB_URL)
