@@ -11,27 +11,24 @@ db = client.starwars
 collection = db.starships
 
 
-match = {"$match": {"name": "Millennium Falcon"}}
+match = {"$match": {"name": "TIE Advanced x1"}}
 
 lookup = {
         "$lookup": {
-            'from': db.characters,
+            'from': "characters",
             'localField': "pilots._id",
             'foreignField': '_id',
             'as': 'pilotsInfo'
         }
     }
+
 unwind  = {"$unwind": "$pilotsInfo"}
-project = {"$project": {"_id": 0, "name": 1, "$pilotsInfo": 1}}
 
-pipeline = [match, lookup, unwind, project]
+project = {"$project": {"_id": 0, "name": 1, "pilotsInfo.name": 1}}
 
-# result = collection.aggregate(pipeline)
-
-
-# for doc in result:
-#     pprint.pprint(doc)
+pipeline = [match, lookup, unwind]
 
 result = collection.aggregate(pipeline)
 
-print(result)
+for doc in result:
+    pprint.pprint(doc)
