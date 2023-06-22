@@ -1,10 +1,11 @@
 import boto3
 import pandas as pd
+import json
 
-# s3_client = boto3.client('s3')
+s3_client = boto3.client('s3')
 
-# obj = s3_client.get_object(Bucket='data-eng-228-final-project', Key='Talent/10383.json')
-# data = json.load(obj['Body'])
+obj = s3_client.get_object(Bucket='data-eng-228-final-project', Key='Talent/10383.json')
+data = json.load(obj['Body'])
 
 
 # # Read the file from S3
@@ -35,7 +36,12 @@ import pandas as pd
 
 
 # Load JSON data into a DataFrame with normalization
-data = pd.read_json('10383.json')
+# data = pd.read_json('10383.json')
+
+with open('10383.json') as f:
+    data = json.load(f)
+
+norm_data = pd.json_normalize(data)
 
 # Display the DataFrame
-print(data)
+print(norm_data)
